@@ -1,4 +1,4 @@
-﻿namespace Infraestructure.Database
+﻿namespace Infraestructure.Data.Contexts
 {
     internal class Contexto
     {

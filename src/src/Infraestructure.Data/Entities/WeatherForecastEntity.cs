@@ -1,6 +1,6 @@
-namespace WebApi
+﻿namespace Infraestructure.Data.Entities
 {
-    public class WeatherForecast
+    public class WeatherForecastEntity
     {
         public DateTime Date { get; set; }
 

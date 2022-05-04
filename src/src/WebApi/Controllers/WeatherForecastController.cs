@@ -1,33 +1,33 @@
+﻿using Application.Interfaces.Core;
+using AutoMapper;
+using Domain.Utilities.LoggingMediatr;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Peticiones.Responses.WeatherForecast;
 
 namespace WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : Controller
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        private readonly IWeatherForecastNegocio _weatherForecastContract;
+        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IWeatherForecastNegocio weatherForecastContract, IMapper mapper, IMediator mediator)
         {
-            _logger = logger;
+            _weatherForecastContract = weatherForecastContract;
+            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> GetAsync()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var weatherForecast = await _weatherForecastContract.GetWeatherForecastAsync();
+            await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));
+            return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
         }
     }
 }

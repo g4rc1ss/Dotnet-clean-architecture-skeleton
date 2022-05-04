@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Infraestructure.Database;
+namespace Infraestructure.DatabaseConfig;
 
-public static class ServiceCollectionExtensions
+public static class InfraestructureConfigExtensions
 {
     public static IServiceCollection AddDatabaseConfig(this IServiceCollection services)
     {

@@ -8,7 +8,7 @@ namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecast
     {
         public WeatherForecastMaapper()
         {
-            CreateMap<WeatherForecastEntity, WeatherForecastModelEntity>();
+            CreateMap<Entities.WeatherForecast, WeatherForecastModelEntity>();
         }
     }
 }

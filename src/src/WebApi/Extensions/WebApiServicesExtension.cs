@@ -1,6 +1,7 @@
 ﻿using Application.Core;
 using Domain.Utilities.LoggingMediatr;
-using Infraestructure.Data;
+using Infraestructure.DatabaseConfig;
+using Infraestructure.MySqlEntityFramework;
 using MediatR;
 using Microsoft.AspNetCore.DataProtection;
 
@@ -18,7 +19,7 @@ namespace WebApi.Extensions
 
 
             services.AddNegocio();
-            services.AddDatabaseConfig();
+            services.AddDatabaseConfig(configuration);
 
             return services;
         }

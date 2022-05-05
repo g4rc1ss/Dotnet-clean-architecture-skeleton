@@ -1,5 +1,7 @@
 ﻿using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.Graylog;
+using Serilog.Sinks.Graylog.Core.Transport;
 
 namespace WebApi.Extensions
 {
@@ -21,8 +23,20 @@ namespace WebApi.Extensions
                     //        AutoCreateSqlTable = true,
                     //    },
                     //    restrictedToMinimumLevel: LogEventLevel.Warning);
+                    var grayLogConfig = new GraylogSinkOptions
+                    {
+                        HostnameOrAddress = "localhost",
+                        Port = 12201,
 
-                    config.Console(restrictedToMinimumLevel: LogEventLevel.Information);
+                        TransportType = TransportType.Udp,
+                        MinimumLogEventLevel = LogEventLevel.Debug,
+                    };
+                    config.Graylog(grayLogConfig);
+
+                    if (hostBuilderContext.HostingEnvironment.IsDevelopment())
+                    {
+                        config.Console(restrictedToMinimumLevel: LogEventLevel.Debug);
+                    }
                 });
             });
             return hostBuilder;

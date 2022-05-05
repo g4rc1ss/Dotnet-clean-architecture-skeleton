@@ -1,13 +1,69 @@
-﻿-- DROP DATABASE IF EXISTS `CleanArchitecture`;
--- CREATE DATABASE IF NOT EXISTS `CleanArchitecture`;
+﻿DROP DATABASE IF EXISTS `CleanArchitectureSkeleton`;
+CREATE DATABASE IF NOT EXISTS `CleanArchitectureSkeleton`;
 
--- CREATE TABLE `CleanArchitecture`.`WeatherForecast` (
-    
---     PRIMARY KEY(`ID`)
--- );
+CREATE TABLE CleanArchitectureSkeleton.WeatherForecast (
+	Id INT auto_increment NOT NULL,
+	`Date` DATETIME NULL,
+	TemperatureC INT NULL,
+	TemperatureF INT NULL,
+	Summary varchar(100) NULL,
+	CONSTRAINT WeatherForecast_PK PRIMARY KEY (Id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
 
--- INSERT INTO `CleanArchitecture`.`Empleado`(`Nombre`, `Apellidos`, `Salario`) VALUES
--- 	('David', 'Yates', 200000),
--- 	('Anthony', 'Russo', 50000000000),
--- 	('Roger', 'Alles', 2000000),
--- 	('Joe', 'Johson', 6000000);
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');
+INSERT INTO CleanArchitectureSkeleton.WeatherForecast (`Date`, TemperatureC, TemperatureF, Summary) VALUES('2022-05-05 15:06:00', 10, 15, 'Temperaturas');

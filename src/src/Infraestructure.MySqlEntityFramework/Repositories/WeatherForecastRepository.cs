@@ -3,7 +3,7 @@ using AutoMapper;
 using Domain.Database.ModelEntity;
 using Infraestructure.Data.Entities;
 
-namespace Infraestructure.Data.Repositories
+namespace Infraestructure.MySqlEntityFramework.Repositories
 {
     internal class WeatherForecastRepository : IWeatherForecastRepository
     {

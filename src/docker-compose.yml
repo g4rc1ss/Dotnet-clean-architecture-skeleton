@@ -12,4 +12,4 @@ services:
       MYSQL_ROOT_PASSWORD: '123456'
     command: --init-file /data/application/initMysql.sql
     volumes: 
-        - ./docker/MySqlDatabaseInit/initMysql.sql:/data/application/initMysql.sql
+        - ./.docker/MySqlDatabaseInit/initMysql.sql:/data/application/initMysql.sql

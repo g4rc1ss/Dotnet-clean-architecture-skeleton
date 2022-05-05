@@ -1,8 +1,8 @@
 ﻿using Application.Interfaces.Data;
-using Infraestructure.Data.Repositories;
+using Infraestructure.MySqlEntityFramework.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infraestructure.Data;
+namespace Infraestructure.MySqlEntityFramework;
 
 public static class AccessDataExtensions
 {

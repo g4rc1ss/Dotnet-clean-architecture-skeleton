@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Interfaces.Data;
+﻿using Application.Interfaces.Data;
 using Moq;
 using TestUnitarios.Mocks.MockRepositoryDatabase.Fake;
 

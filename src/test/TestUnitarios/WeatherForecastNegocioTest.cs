@@ -1,11 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Application.Interfaces.Core;
-using Application.Interfaces.Data;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestUnitarios.Mocks.MockRepositoryDatabase;
 
 namespace TestUnitarios;
 
@@ -21,7 +19,7 @@ public class WeatherForecastNegocioTest
     }
 
     [TestMethod]
-    public async Task GetWeatherForecas_Then_ResponseWithOneOrMoreResults()
+    public async Task GetWeatherForecast_Then_ResponseWithOneOrMoreResults()
     {
         var weatherService = DependencyInjection.Services.GetRequiredService<IWeatherForecastNegocio>();
         var response = await weatherService.GetWeatherForecastAsync();

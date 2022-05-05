@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositorie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUnitarios", "test\TestUnitarios\TestUnitarios.csproj", "{8A890C24-5F18-4844-BC49-A584795E70A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIntegracion", "test\TestIntegracion\TestIntegracion.csproj", "{82BAAB86-3122-4473-93D0-FF4E32E8F51B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestIntegracion", "test\TestIntegracion\TestIntegracion.csproj", "{82BAAB86-3122-4473-93D0-FF4E32E8F51B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

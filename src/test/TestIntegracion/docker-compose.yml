@@ -1,0 +1,15 @@
+﻿version: '3.8'
+
+services:
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    ports: 
+      - 3307:3307
+    environment: 
+      MYSQL_ROOT_PASSWORD: '123456'
+    command: --init-file /data/application/initMysql.sql
+    volumes: 
+        - ./docker/MySqlDatabaseInit/initMysql.sql:/data/application/initMysql.sql

@@ -9,12 +9,9 @@ services:
     #   - ../test:/test
     command:
       [
-        "./.github/workflows/WaitForDatabase.sh",
-        "localhost:1433",
-        "--",
         "dotnet",
         "test",
-        "./src/SolutionTemplate.sln"
+        "../../src/test/TestIntegracion/TestIntegracion.csproj"
       ]
     depends_on:
       - database

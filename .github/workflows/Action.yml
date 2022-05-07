@@ -35,9 +35,9 @@ jobs:
       run: |
         echo 'arrancar mysql'
         sudo systemctl start mysql
-        ls /
         echo 'Iniciando sesion'
-        mysql --user=root --password=123456 CleanArchitectureSkeleton < /src/.docker/MySqlDatabaseInit/initMysql.sql
+        cd ./src/.docker/MySqlDatabaseInit
+        mysql --user=root --password=123456 CleanArchitectureSkeleton < initMysql.sql
 
     - name: Testing dotnet
       run: |

@@ -7,16 +7,23 @@ on:
 
 jobs:
   build:
-
+    name: Ubuntu
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql
+        ports:
+        - 3306/tcp
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: 123456
+        run: |
+          sudo mysql -h localhost -u root -p 123456
+          source ./src/.docker/MySqlDatabaseInit/initMysql.sql
     
     steps:
     - uses: actions/checkout@v2
-  
-    # - name: Create docker containers
-    #   run: | 
-    #     cd src/
-    #     docker-compose up -d
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
@@ -28,10 +35,4 @@ jobs:
 
     - name: Testing dotnet
       run: |
-        docker network rm $(docker network ls -q) || true
-        docker-compose -f ./src/docker-compose.yml up -d
-        echo 'pausing: waiting for mysql to come available'
-        sudo sh ./.github/workflows/wait-for-mysql.sh
-        echo 'un-pausing: mysql is now available'
         dotnet test --configuration Release ./src/SolutionTemplate.sln
-        docker-compose -f ./src/docker-compose.yml down -v

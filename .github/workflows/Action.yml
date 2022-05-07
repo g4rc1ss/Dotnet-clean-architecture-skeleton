@@ -15,8 +15,12 @@ jobs:
 
     - name: Create containers
       run: |
-        docker-compose up -f ./src/docker-compose.yml
-        docker run --network container::mysql appropriate/curl -s --retry 10 --retry-connrefused http://localhost:3306
+        echo 'Accedemos a la carpeta'
+        cd ./src
+        echo 'Crear los contenedores'
+        docker-compose up
+        echo 'ejecutamos el docker run de mysql'
+        docker run --network container:mysql appropriate/curl -s --retry 10 --retry-connrefused http://localhost:3306
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1

@@ -18,6 +18,11 @@ jobs:
         cd src/
         docker-compose up -d
       
+   - name: Wait for containers
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '5s'
+
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
@@ -27,6 +32,4 @@ jobs:
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
     - name: Dotnet Test
-      run: |
-        sudo bash ./.github/workflows/WaitForDatabase.sh -h localhost -p 3306 -t 60
-        dotnet test --configuration Release ./src/SolutionTemplate.sln
+      run: dotnet test --configuration Release ./src/SolutionTemplate.sln

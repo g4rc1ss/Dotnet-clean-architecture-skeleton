@@ -24,7 +24,7 @@ jobs:
 
     - name: Run test with Docker compose
       run: | 
-        cd .7.github/workflows
+        cd ./.github/workflows
         docker-compose up -d
     # - name: Dotnet Test
     #   run: |

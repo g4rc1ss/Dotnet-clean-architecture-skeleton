@@ -28,5 +28,5 @@ jobs:
 
     - name: Dotnet Test
       run: |
-        sudo bash ./.github/workflows/WaitForDatabase.sh -h localhost -p 3306
+        sudo bash ./.github/workflows/WaitForDatabase.sh -h localhost -p 3306 -t 60
         dotnet test --configuration Release ./src/SolutionTemplate.sln

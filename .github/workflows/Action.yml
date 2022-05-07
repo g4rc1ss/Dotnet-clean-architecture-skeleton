@@ -18,9 +18,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: 123456
-        run: |
-          sudo mysql -h localhost -u root -p 123456
-          source ./src/.docker/MySqlDatabaseInit/initMysql.sql
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=10s --health-retries=10
     
     steps:
     - uses: actions/checkout@v2
@@ -32,6 +30,13 @@ jobs:
         
     - name: Building dotnet
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
+
+    - name: Init Database
+      run: |
+        echo 'Iniciando sesion'
+        sudo mysql -h localhost -u root -p 123456
+        echo 'Ejecutando archivo SQL'
+        source ./src/.docker/MySqlDatabaseInit/initMysql.sql
 
     - name: Testing dotnet
       run: |

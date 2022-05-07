@@ -7,11 +7,12 @@ services:
     # volumes:
     #   - .:/src
     #   - ../test:/test
+    working_dir: /src
     command:
       [
         "dotnet",
         "test",
-        "../../src/test/TestIntegracion/TestIntegracion.csproj"
+        "src/SolutionTemplate.sln"
       ]
     depends_on:
       - database

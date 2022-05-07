@@ -22,9 +22,6 @@ jobs:
     - name: Dotnet Build
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
-    - name: Dotnet Test
-      run: dotnet test --configuration Release ./src/test/TestUnitarios/TestUnitarios.csproj
-
     - name: Run test with Docker compose
       run: | 
         cd ./.github/workflows

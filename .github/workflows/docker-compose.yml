@@ -22,8 +22,3 @@ services:
     extends:
       file: ../../src/docker-compose.yml
       service: mysql
-
-  logger:
-    extends:
-      file: ../../src/docker-compose.yml
-      service: graylog

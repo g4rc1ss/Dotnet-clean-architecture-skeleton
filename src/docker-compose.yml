@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: 'CleanArchitectureSkeleton'
       MYSQL_ROOT_PASSWORD: '123456'
     volumes: 
-      - ./.docker/MySqlDatabaseInit/initMysql.sql:/docker-entrypoint-initdb.d/init.sql
+      - .docker/MySqlDatabaseInit/InitMysql.sql:/docker-entrypoint-initdb.d/init.sql:rw
 
   redis:
     container_name: redis
@@ -45,6 +45,7 @@ services:
         limits:
           memory: 1g
   graylog:
+    container_name: graylog_logger
     image: graylog/graylog:4.0
     environment:
       # at least 16 characters

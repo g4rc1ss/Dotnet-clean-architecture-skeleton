@@ -7,19 +7,27 @@ on:
 
 jobs:
   build:
-
+    name: Ubuntu
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    
+
+    - name: Create containers
+      run: |
+        echo 'Accedemos a la carpeta'
+        cd ./src
+        echo 'Crear los contenedores'
+        docker-compose up -d
+
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
         
-    - name: Dotnet Build
+    - name: Building dotnet
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
-    - name: Dotnet Test
-      run: dotnet test --configuration Release ./src/SolutionTemplate.sln
+    - name: Testing dotnet
+      run: |
+        dotnet test --configuration Release ./src/SolutionTemplate.sln

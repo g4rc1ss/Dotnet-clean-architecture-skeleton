@@ -45,6 +45,7 @@ services:
         limits:
           memory: 1g
   graylog:
+    container_name: graylog_logger
     image: graylog/graylog:4.0
     environment:
       # at least 16 characters

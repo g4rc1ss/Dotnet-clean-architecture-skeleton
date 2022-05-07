@@ -9,19 +9,14 @@ jobs:
   build:
     name: Ubuntu
     runs-on: ubuntu-latest
-
-    services:
-      mysql:
-        image: mysql
-        ports:
-        - 3306/tcp
-        env:
-          MYSQL_ROOT_PASSWORD: 123456
-          MYSQL_DATABASE: CleanArchitectureSkeleton
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=10s --health-retries=10
     
     steps:
     - uses: actions/checkout@v2
+
+    - name: Create containers
+      run: |
+        docker-compose up -f ./src/docker-compose.yml
+        docker run --network container::mysql appropriate/curl -s --retry 10 --retry-connrefused http://localhost:3306
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
@@ -30,15 +25,6 @@ jobs:
         
     - name: Building dotnet
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
-
-    - name: Init Database
-      run: |
-        echo 'arrancar mysql'
-        sudo systemctl start mysql
-        echo 'Iniciando sesion'
-        cd ./src/.docker/MySqlDatabaseInit
-        ls
-        mysql -h 127.0.0.1 --user=root --password=123456 CleanArchitectureSkeleton < InitMysql.sql
 
     - name: Testing dotnet
       run: |

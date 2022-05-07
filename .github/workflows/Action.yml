@@ -13,10 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Create docker containers
-      run: | 
-        cd src/
-        docker-compose up -d
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
@@ -26,7 +22,11 @@ jobs:
     - name: Dotnet Build
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
-    - name: Dotnet Test
-      run: |
-        ./.github/workflows/WaitForDatabase.sh localhost:3306
-        dotnet test --configuration Release ./src/SolutionTemplate.sln
+    - name: Run test with Docker compose
+      run: | 
+        cd .7.github/workflows
+        docker-compose up -d
+    # - name: Dotnet Test
+    #   run: |
+    #     ./.github/workflows/WaitForDatabase.sh localhost:3306
+    #     dotnet test --configuration Release ./src/SolutionTemplate.sln

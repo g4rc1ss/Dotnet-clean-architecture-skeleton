@@ -12,24 +12,26 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Create docker containers
-      run: | 
-        cd src/
-        docker-compose up -d
-      
-    - name: Wait for containers
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '5s'
+  
+    # - name: Create docker containers
+    #   run: | 
+    #     cd src/
+    #     docker-compose up -d
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
         
-    - name: Dotnet Build
+    - name: Building dotnet
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
-    - name: Dotnet Test
-      run: dotnet test --configuration Release ./src/SolutionTemplate.sln
+    - name: Testing dotnet
+      run: |
+        docker network rm $(docker network ls -q) || true
+        docker-compose -f ./src/docker-compose.yml up -d
+        echo 'pausing: waiting for mysql to come available'
+        ./wait-for-mysql.sh
+        echo 'un-pausing: mysql is now available'
+        dotnet test --configuration Release ./src/SolutionTemplate.sln
+        docker-compose -f ./src/docker-compose.yml down -v

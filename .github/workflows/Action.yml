@@ -18,7 +18,7 @@ jobs:
         cd src/
         docker-compose up -d
       
-   - name: Wait for containers
+    - name: Wait for containers
       uses: jakejarvis/wait-action@master
       with:
         time: '5s'

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Infraestructure.MySqlEntityFramework.Entities
+﻿namespace Infraestructure.MySqlEntityFramework.Entities
 {
     public partial class WeatherForecast
     {

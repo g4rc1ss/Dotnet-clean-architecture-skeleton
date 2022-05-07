@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Domain.Database.ModelEntity;
-using Infraestructure.MySqlEntityFramework.Entities;
 
 namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecast
 {

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  integration-tests:
+    container_name: integration-tests
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    # volumes:
+    #   - .:/src
+    #   - ../test:/test
+    working_dir: /src
+    command:
+      [
+        "./.github/workflows/WaitForDatabase.sh",
+        "localhost:1433",
+        "--",
+        "dotnet",
+        "test",
+        "./SolutionTemplate.sln"
+      ]
+    depends_on:
+      - database
+      - logger
+
+  database:
+    extends:
+    file: ../../src/docker-compose.yml
+    service: mysql
+
+  logger:
+    extends:
+    file: ../../src/docker-compose.yml
+    service: graylog

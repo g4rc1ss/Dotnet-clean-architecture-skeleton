@@ -16,7 +16,6 @@ services:
       ]
     depends_on:
       - database
-      - logger
 
   database:
     extends:

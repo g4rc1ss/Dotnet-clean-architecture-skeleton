@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: 'CleanArchitectureSkeleton'
       MYSQL_ROOT_PASSWORD: '123456'
     volumes: 
-      - .docker/MySqlDatabaseInit/initMysql.sql:/docker-entrypoint-initdb.d/init.sql
+      - .docker/MySqlDatabaseInit/initMysql.sql:/docker-entrypoint-initdb.d/init.sql:rw
 
   redis:
     container_name: redis

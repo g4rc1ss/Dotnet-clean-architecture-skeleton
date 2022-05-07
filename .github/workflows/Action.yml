@@ -36,8 +36,9 @@ jobs:
         echo 'arrancar mysql'
         sudo systemctl start mysql
         echo 'Iniciando sesion'
-        ls
-        sudo mysql -uroot -p123456 sys < src/.docker/MySqlDatabaseInit/initMysql.sql
+        sudo mysql -uroot -p123456 
+        echo 'Ejecutando archivo'
+        source ./src/.docker/MySqlDatabaseInit/initMysql.sql
 
     - name: Testing dotnet
       run: |

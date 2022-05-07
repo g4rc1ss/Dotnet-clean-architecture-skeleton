@@ -38,7 +38,7 @@ jobs:
         echo 'Iniciando sesion'
         cd ./src/.docker/MySqlDatabaseInit
         ls
-        mysql --user=root --password=123456 CleanArchitectureSkeleton < initMysql.sql
+        mysql --user=root --password=123456 CleanArchitectureSkeleton < InitMysql.sql
 
     - name: Testing dotnet
       run: |

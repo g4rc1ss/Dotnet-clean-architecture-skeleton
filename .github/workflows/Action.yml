@@ -36,7 +36,7 @@ jobs:
         echo 'arrancar mysql'
         sudo systemctl start mysql
         echo 'Iniciando sesion'
-        sudo mysql -uroot -p123456 CleanArchitectureSkeleton
+        sudo mysql -u root -p 123456 CleanArchitectureSkeleton
         echo 'Ejecutando archivo'
         source ./src/.docker/MySqlDatabaseInit/initMysql.sql
 

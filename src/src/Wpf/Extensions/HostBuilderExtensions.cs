@@ -13,7 +13,10 @@ namespace Wpf.Extensions
             {
                 loggerConfig.WriteTo.Async(config =>
                 {
-                    config.File("./logs", LogEventLevel.Debug);
+                    config.File(@".\logs\log-.txt",
+                        rollingInterval: RollingInterval.Hour,
+                        rollOnFileSizeLimit: true,
+                        restrictedToMinimumLevel: LogEventLevel.Debug);
 
                     if (hostBuilderContext.HostingEnvironment.IsDevelopment())
                     {

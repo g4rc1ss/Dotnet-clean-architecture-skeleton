@@ -24,7 +24,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetWeatherForecast")]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetWeatherForecast()
         {
             var weatherForecast = await _weatherForecastContract.GetWeatherForecastAsync();
             await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));

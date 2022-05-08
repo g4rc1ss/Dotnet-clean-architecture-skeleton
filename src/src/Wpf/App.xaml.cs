@@ -58,14 +58,15 @@ namespace Wpf
             builder.Services.InicializarConfiguracionApp(builder.Configuration);
             builder.Services.AddProblemDetails();
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddApplicationPart(typeof(WebApiServicesExtension).Assembly);
 
             var app = builder.Build();
             //app.Urls.Add("http://localhost:5001");
 
-            app.UseCors("open");
-
             app.UseProblemDetails();
+
+            app.UseCors("open");
 
             app.MapControllers();
 

@@ -11,7 +11,8 @@ builder.Services.InicializarConfiguracionApp(builder.Configuration);
 builder.Services.AddProblemDetails();
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(WebApiServicesExtension).Assembly);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

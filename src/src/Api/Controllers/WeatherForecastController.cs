@@ -3,9 +3,10 @@ using AutoMapper;
 using Domain.Utilities.LoggingMediatr;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Peticiones.Request;
 using Shared.Peticiones.Responses.WeatherForecast;
 
-namespace WebApi.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -28,6 +29,13 @@ namespace WebApi.Controllers
             var weatherForecast = await _weatherForecastContract.GetWeatherForecastAsync();
             await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));
             return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
+        }
+
+        [HttpPost()]
+        public IActionResult Hola(Class1 hola)
+        {
+            throw new Exception("Exception de prueba");
+            return Ok(hola);
         }
     }
 }

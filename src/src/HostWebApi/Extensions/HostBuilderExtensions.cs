@@ -3,7 +3,7 @@ using Serilog.Events;
 using Serilog.Sinks.Graylog;
 using Serilog.Sinks.Graylog.Core.Transport;
 
-namespace WebApi.Extensions
+namespace HostWebApi.Extensions
 {
     public static class HostBuilderExtensions
     {

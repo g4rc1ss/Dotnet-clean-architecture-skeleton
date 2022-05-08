@@ -4,12 +4,14 @@ using Infraestructure.DatabaseConfig;
 using Infraestructure.MySqlEntityFramework;
 using MediatR;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace WebApi.Extensions
+namespace Api.Extensions
 {
     public static class WebApiServicesExtension
     {
-        internal static IServiceCollection InicializarConfiguracionApp(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection InicializarConfiguracionApp(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(WebApiServicesExtension), typeof(BusinessExtensions), typeof(AccessDataExtensions));
             services.AddMediatR(typeof(WebApiServicesExtension), typeof(LoggingRequest));
@@ -24,7 +26,7 @@ namespace WebApi.Extensions
             return services;
         }
 
-        internal static IServiceCollection AddRedisCache(this IServiceCollection services)
+        public static IServiceCollection AddRedisCache(this IServiceCollection services)
         {
             //services.AddStackExchangeRedisCache(options =>
             //{
@@ -35,7 +37,7 @@ namespace WebApi.Extensions
             return services;
         }
 
-        internal static IServiceCollection ConfigureDataProtectionProvider(this IServiceCollection services)
+        public static IServiceCollection ConfigureDataProtectionProvider(this IServiceCollection services)
         {
             services.AddDataProtection()
                 .PersistKeysToFileSystem(new DirectoryInfo(@".\temp"))

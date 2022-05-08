@@ -2,7 +2,7 @@
 using Domain.Database.ModelEntity;
 using Shared.Peticiones.Responses.WeatherForecast;
 
-namespace WebApi.MapperProfiles.WeatherForecast
+namespace Api.MapperProfiles.WeatherForecast
 {
     public class WeatherForecastMaapper : Profile
     {

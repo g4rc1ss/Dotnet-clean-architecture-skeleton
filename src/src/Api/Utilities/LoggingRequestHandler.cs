@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
 using Domain.Utilities.LoggingMediatr;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
-namespace WebApi.Utilities
+namespace Api.Utilities
 {
     public class LoggingRequestHandler : INotificationHandler<LoggingRequest>
     {

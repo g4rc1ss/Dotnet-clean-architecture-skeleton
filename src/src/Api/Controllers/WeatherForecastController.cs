@@ -30,12 +30,5 @@ namespace Api.Controllers
             await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));
             return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
         }
-
-        [HttpPost()]
-        public IActionResult Hola(Class1 hola)
-        {
-            throw new Exception("Exception de prueba");
-            return Ok(hola);
-        }
     }
 }

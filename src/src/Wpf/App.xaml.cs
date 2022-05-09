@@ -1,16 +1,12 @@
-﻿using Api.Extensions;
-using Wpf.Extensions;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
+using Api.Extensions;
 using Hellang.Middleware.ProblemDetails;
-using System;
-using System.IO;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Wpf.Extensions;
 
 namespace Wpf
 {

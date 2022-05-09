@@ -5,6 +5,9 @@ on:
     branches: 
       - main
 
+env:
+  PathSolutionName: ./src/SolutionTemplate.sln
+
 jobs:
   build:
     name: Build
@@ -19,9 +22,12 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Building dotnet
-      run: dotnet build --configuration Release ./src/SolutionTemplate.sln
+      run: |
+        cd ./src
+        dotnet build --configuration Release
 
   test:
+    needs: build
     name: Testing
     runs-on: ubuntu-latest
     
@@ -42,4 +48,5 @@ jobs:
 
     - name: Testing dotnet
       run: |
-        dotnet test --configuration Release ./src/SolutionTemplate.sln
+        dotnet sln $PathSolutionName remove ./src/src/Wpf/Wpf.csproj
+        dotnet test --filter FullyQualifiedName!~Wpf --configuration Release $PathSolutionName

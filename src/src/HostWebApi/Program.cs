@@ -1,6 +1,9 @@
 ﻿using Api.Extensions;
 using Hellang.Middleware.ProblemDetails;
 using HostWebApi.Extensions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +14,8 @@ builder.Services.InicializarConfiguracionApp(builder.Configuration);
 builder.Services.AddProblemDetails();
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(WebApiServicesExtension).Assembly);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

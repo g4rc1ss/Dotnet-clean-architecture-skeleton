@@ -24,18 +24,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetWeatherForecast")]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetWeatherForecast()
         {
             var weatherForecast = await _weatherForecastContract.GetWeatherForecastAsync();
             await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));
             return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
-        }
-
-        [HttpPost()]
-        public IActionResult Hola(Class1 hola)
-        {
-            throw new Exception("Exception de prueba");
-            return Ok(hola);
         }
     }
 }

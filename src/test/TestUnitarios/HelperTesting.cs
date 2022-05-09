@@ -1,6 +1,7 @@
 ﻿using Application.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TestUnitarios.Mocks.MockDataProtection;
 using TestUnitarios.Mocks.MockRepositoryDatabase;
 
 namespace TestUnitarios
@@ -23,6 +24,7 @@ namespace TestUnitarios
         public static IServiceCollection AddMockServices(this IServiceCollection services)
         {
             services.AddTransient(x => new WeatherForecastRepositoryMock().MockingWeatherForecastRepository.Object);
+            services.AddTransient(x => new DataProtectionProviderMock().MockingDataProtectionProvider.Object);
 
             return services;
         }

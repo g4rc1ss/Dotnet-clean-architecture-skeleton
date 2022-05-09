@@ -22,7 +22,9 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Building dotnet
-      run: dotnet build --configuration Release $PathSolutionName
+      run: |
+        cd ./src
+        dotnet build --configuration Release
 
   test:
     needs: build

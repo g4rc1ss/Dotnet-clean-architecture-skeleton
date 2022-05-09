@@ -18,6 +18,7 @@ namespace Application.Core.WeatherForecast
 
         public Task<IEnumerable<WeatherForecastModelEntity>> GetWeatherForecastAsync()
         {
+            _protector.Protect("Hola");
             return _weatherForecastRepository.GetWeatherForecastAsync();
         }
     }

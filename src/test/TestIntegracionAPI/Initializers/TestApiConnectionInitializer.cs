@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using Api.Extensions;
+using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,47 +12,54 @@ namespace TestIntegracionAPI.Initializers
 {
     public class TestApiConnectionInitializer
     {
+        public readonly string apiBaseAddress = "http://localhost:5000";
+        public readonly string nameoOfHttpClient = "ApiWeather";
+
         public HttpClient ApiClient { get; set; }
         public IServiceProvider ServiceProvider { get; set; }
         public IConfiguration Configuration { get; set; }
 
         public TestApiConnectionInitializer()
         {
-            var builder = WebApplication.CreateBuilder();
+            var options = new WebApplicationOptions
+            {
+                EnvironmentName = "Development",
+            };
+            var builder = WebApplication.CreateBuilder(options);
 
-            //builder.Host.AddLoggerConfiguration();
+            builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
+            builder.Configuration.AddJsonFile("appsettings.test.json", true);
 
-            //builder.Services.AddCors(option =>
-            //{
-            //    option.AddPolicy("open", builder => builder.AllowAnyOrigin().AllowAnyHeader());
-            //});
+            builder.Services.AddHttpClient(nameoOfHttpClient, (client) =>
+            {
+                client.BaseAddress = new Uri(apiBaseAddress);
+            });
 
-            //builder.Services.InicializarConfiguracionApp(builder.Configuration);
-            //builder.Services.AddProblemDetails();
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("open", builder => builder.AllowAnyOrigin().AllowAnyHeader());
+            });
 
-            //builder.Services.AddControllers()
-            //    .AddApplicationPart(typeof(WebApiServicesExtension).Assembly);
+            builder.Services.InicializarConfiguracionApp(builder.Configuration);
+            builder.Services.AddProblemDetails();
 
-            //var app = builder.Build();
+            builder.Services.AddControllers()
+                .AddApplicationPart(typeof(WebApiServicesExtension).Assembly);
 
-            //app.UseProblemDetails();
+            var app = builder.Build();
 
-            //app.UseCors("open");
+            app.UseProblemDetails();
 
-            //app.MapControllers();
+            app.UseCors("open");
 
-            //return app.RunAsync("http://localhost:5000");
-
-
-
+            app.MapControllers();
 
 
-            //builder.ConfigureAppConfiguration((hostBuilder, config) =>
-            //{
-            //    config.SetBasePath(Directory.GetCurrentDirectory());
-            //    config.AddJsonFile("appsettings.test.json", false);
-            //});
-            //builder.UseEnvironment("Development");
+            ServiceProvider = app.Services;
+            Configuration = app.Configuration;
+            ApiClient = app.Services.GetRequiredService<IHttpClientFactory>().CreateClient(nameoOfHttpClient);
+
+            app.RunAsync(apiBaseAddress);
         }
     }
 }

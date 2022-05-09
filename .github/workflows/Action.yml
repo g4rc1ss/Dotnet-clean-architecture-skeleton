@@ -7,7 +7,22 @@ on:
 
 jobs:
   build:
-    name: Ubuntu
+    name: Build
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Building dotnet
+      run: dotnet build --configuration Release ./src/SolutionTemplate.sln
+
+  build:
+    name: Testing
     runs-on: ubuntu-latest
     
     steps:
@@ -24,9 +39,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-        
-    - name: Building dotnet
-      run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
     - name: Testing dotnet
       run: |

@@ -21,7 +21,7 @@ jobs:
     - name: Building dotnet
       run: dotnet build --configuration Release ./src/SolutionTemplate.sln
 
-  build:
+  test:
     name: Testing
     runs-on: ubuntu-latest
     

@@ -45,5 +45,5 @@ jobs:
 
     - name: Testing dotnet
       run: |
-        dotnet sln $PathSolutionName remove ./src/Wpf/Wpf.csproj
+        dotnet sln $PathSolutionName remove ./src/src/Wpf/Wpf.csproj
         dotnet test --filter FullyQualifiedName!~Wpf --configuration Release $PathSolutionName

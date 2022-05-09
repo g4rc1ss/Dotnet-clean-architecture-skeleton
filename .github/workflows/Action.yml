@@ -42,4 +42,4 @@ jobs:
 
     - name: Testing dotnet
       run: |
-        dotnet test --configuration Release ./src/SolutionTemplate.sln
+        dotnet test --filter FullyQualifiedName!~Wpf --configuration Release ./src/SolutionTemplate.sln

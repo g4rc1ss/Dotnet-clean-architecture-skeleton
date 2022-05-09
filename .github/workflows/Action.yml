@@ -25,6 +25,7 @@ jobs:
       run: dotnet build --configuration Release $PathSolutionName
 
   test:
+    needs: build
     name: Testing
     runs-on: ubuntu-latest
     

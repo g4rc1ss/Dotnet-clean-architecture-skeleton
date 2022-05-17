@@ -20,10 +20,10 @@ namespace Infraestructure.MySqlEntityFramework.Repositories
             _mediator = mediator;
         }
 
-        public async Task<IEnumerable<WeatherForecastModelEntity>> GetWeatherForecastAsync()
+        public Task<List<WeatherForecastModelEntity>> GetWeatherForecastAsync()
         {
-            var consultaBaseDeDatos = await _cleanArchitectureContext.WeatherForecasts.ToListAsync();
-            return _mapper.Map<IEnumerable<WeatherForecastModelEntity>>(consultaBaseDeDatos);
+            var query = _cleanArchitectureContext.WeatherForecasts;
+            return _mapper.ProjectTo<WeatherForecastModelEntity>(query).ToListAsync();
         }
     }
 }

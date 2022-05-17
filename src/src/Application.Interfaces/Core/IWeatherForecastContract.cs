@@ -4,6 +4,6 @@ namespace Application.Interfaces.Core
 {
     public interface IWeatherForecastNegocio
     {
-        Task<IEnumerable<WeatherForecastModelEntity>> GetWeatherForecastAsync();
+        Task<List<WeatherForecastModelEntity>> GetWeatherForecastAsync();
     }
 }

@@ -16,7 +16,7 @@ namespace Application.Core.WeatherForecast
             _protector = dataProtectionProvider.CreateProtector("Application.Core.WeatherForecast.WeatherForecastNegocio");
         }
 
-        public Task<IEnumerable<WeatherForecastModelEntity>> GetWeatherForecastAsync()
+        public Task<List<WeatherForecastModelEntity>> GetWeatherForecastAsync()
         {
             _protector.Protect("Hola");
             return _weatherForecastRepository.GetWeatherForecastAsync();

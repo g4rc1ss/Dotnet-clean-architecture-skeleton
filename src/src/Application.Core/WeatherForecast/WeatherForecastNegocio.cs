@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces.Core;
-using Application.Interfaces.Data;
+using Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts;
 using Domain.Database.ModelEntity;
 using Microsoft.AspNetCore.DataProtection;
 
@@ -7,10 +7,10 @@ namespace Application.Core.WeatherForecast
 {
     internal class WeatherForecastNegocio : IWeatherForecastNegocio
     {
-        private readonly IWeatherForecastRepository _weatherForecastRepository;
+        private readonly IWeatherForecastQueryAllContract _weatherForecastRepository;
         private readonly IDataProtector _protector;
 
-        public WeatherForecastNegocio(IWeatherForecastRepository weatherForecastRepository, IDataProtectionProvider dataProtectionProvider)
+        public WeatherForecastNegocio(IWeatherForecastQueryAllContract weatherForecastRepository, IDataProtectionProvider dataProtectionProvider)
         {
             _weatherForecastRepository = weatherForecastRepository;
             _protector = dataProtectionProvider.CreateProtector("Application.Core.WeatherForecast.WeatherForecastNegocio");

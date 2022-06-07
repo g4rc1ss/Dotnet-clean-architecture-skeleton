@@ -1,6 +1,8 @@
-﻿using Application.Interfaces.Data;
+﻿using Application.Interfaces.Infraestructure.Command.WeatherForecastCommandContracts;
+using Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts;
 using Infraestructure.MySqlEntityFramework.Contexts;
-using Infraestructure.MySqlEntityFramework.Repositories;
+using Infraestructure.MySqlEntityFramework.Repositories.Command.WeatherForecastCommand;
+using Infraestructure.MySqlEntityFramework.Repositories.Query.WeatherForecastQueries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,12 +21,11 @@ public static class AccessDataExtensions
 
     private static IServiceCollection AddMySqlDbContext<TContext>(this IServiceCollection services, IConfiguration configuration) where TContext : DbContext
     {
-        Action<DbContextOptionsBuilder> dbContextOptions = db =>
+        void dbContextOptions(DbContextOptionsBuilder db)
         {
             var mySqlVersion = MySqlServerVersion.LatestSupportedServerVersion;
             db.UseMySql(configuration.GetConnectionString(typeof(TContext).Name), mySqlVersion);
-        };
-
+        }
 
         services.AddDbContextPool<TContext>(dbContextOptions);
         services.AddPooledDbContextFactory<TContext>(dbContextOptions);
@@ -34,7 +35,8 @@ public static class AccessDataExtensions
 
     private static IServiceCollection AddRepositoryServices(this IServiceCollection services)
     {
-        services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository>();
+        services.AddScoped<IWeatherForecastQueryAllContract, WeatherForecastQueryAll>();
+        services.AddScoped<IWeatherForecastCommandCreateContract, WeatherForecastCommandCreate>();
 
         return services;
     }

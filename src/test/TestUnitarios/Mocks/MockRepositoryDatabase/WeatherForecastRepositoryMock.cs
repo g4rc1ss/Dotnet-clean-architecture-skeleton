@@ -1,4 +1,4 @@
-﻿using Application.Interfaces.Data;
+﻿using Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts;
 using Moq;
 using TestUnitarios.Mocks.MockRepositoryDatabase.Fake;
 
@@ -6,11 +6,11 @@ namespace TestUnitarios.Mocks.MockRepositoryDatabase
 {
     internal class WeatherForecastRepositoryMock
     {
-        public Mock<IWeatherForecastRepository> MockingWeatherForecastRepository { get; set; }
+        public Mock<IWeatherForecastQueryAllContract> MockingWeatherForecastRepository { get; set; }
 
         public WeatherForecastRepositoryMock()
         {
-            MockingWeatherForecastRepository = new Mock<IWeatherForecastRepository>();
+            MockingWeatherForecastRepository = new Mock<IWeatherForecastQueryAllContract>();
             Initialize();
         }
 

@@ -3,9 +3,9 @@ using Domain.Database.ModelEntity;
 
 namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecast
 {
-    public class WeatherForecastMaapper : Profile
+    public class WeatherForecastMapper : Profile
     {
-        public WeatherForecastMaapper()
+        public WeatherForecastMapper()
         {
             //CreateMap<Entities.WeatherForecast, WeatherForecastModelEntity>();
             CreateProjection<Entities.WeatherForecast, WeatherForecastModelEntity>()

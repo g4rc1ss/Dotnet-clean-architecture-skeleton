@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts;
 using AutoMapper;
-using Domain.Infraestructure.ModelEntity;
+using Domain.Application.WeatherForecast.QueryAll;
 using Infraestructure.MySqlEntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -21,18 +21,21 @@ namespace Infraestructure.MySqlEntityFramework.Repositories.Query.WeatherForecas
             _distributedCache = distributedCache;
         }
 
-        public async Task<List<WeatherForecastModelEntity>> ExecuteAsync(CancellationToken cancellationToken = default)
+        public async Task<List<WeatherForecastQueryAllResponse>> ExecuteAsync(CancellationToken cancellationToken = default)
         {
-            var weatherList = default(List<WeatherForecastModelEntity>);
+            var weatherList = new List<WeatherForecastQueryAllResponse>();
             var cacheWeatherList = await _distributedCache.GetStringAsync(nameof(WeatherForecastQueryAll), cancellationToken);
-            weatherList = JsonSerializer.Deserialize<List<WeatherForecastModelEntity>>(cacheWeatherList);
 
-            if (weatherList is null || weatherList.Count < 1)
+            if (string.IsNullOrEmpty(cacheWeatherList))
             {
                 var query = _cleanArchitectureContext.WeatherForecasts;
-                weatherList = await _mapper.ProjectTo<WeatherForecastModelEntity>(query).ToListAsync(cancellationToken);
+                weatherList = await _mapper.ProjectTo<WeatherForecastQueryAllResponse>(query).ToListAsync(cancellationToken);
 
                 await _distributedCache.SetStringAsync(nameof(WeatherForecastQueryAll), JsonSerializer.Serialize(weatherList), cancellationToken);
+            }
+            else
+            {
+                weatherList = JsonSerializer.Deserialize<List<WeatherForecastQueryAllResponse>>(cacheWeatherList);
             }
             return weatherList;
         }

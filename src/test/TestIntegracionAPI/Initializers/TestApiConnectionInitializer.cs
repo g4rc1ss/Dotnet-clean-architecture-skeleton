@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
-using Api.Extensions;
+using Api;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace TestIntegracionAPI.Initializers
 {

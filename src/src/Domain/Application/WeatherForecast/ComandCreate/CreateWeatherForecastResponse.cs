@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Application.WeatherForecast.ComandCreate
+﻿namespace Domain.Application.WeatherForecast.ComandCreate
 {
     public class CreateWeatherForecastResponse
     {
+        public bool Success { get; set; }
     }
 }

@@ -1,9 +1,6 @@
-﻿using Api.Extensions;
+﻿using Api;
 using Hellang.Middleware.ProblemDetails;
 using HostWebApi.Extensions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 

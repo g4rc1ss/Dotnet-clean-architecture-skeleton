@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Application.Interfaces.Core;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

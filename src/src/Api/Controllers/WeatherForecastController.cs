@@ -1,9 +1,7 @@
-﻿using Application.Interfaces.Core;
-using AutoMapper;
-using Domain.Utilities.LoggingMediatr;
+﻿using AutoMapper;
+using Domain.Application.WeatherForecast.QueryAll;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Peticiones.Request;
 using Shared.Peticiones.Responses.WeatherForecast;
 
 namespace Api.Controllers
@@ -12,22 +10,19 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : Controller
     {
-        private readonly IWeatherForecastNegocio _weatherForecastContract;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public WeatherForecastController(IWeatherForecastNegocio weatherForecastContract, IMapper mapper, IMediator mediator)
+        public WeatherForecastController(IMapper mapper, IMediator mediator)
         {
-            _weatherForecastContract = weatherForecastContract;
             _mapper = mapper;
             _mediator = mediator;
         }
 
-        [HttpGet("GetWeatherForecast")]
+        [HttpGet("allWeatherForecast")]
         public async Task<IActionResult> GetWeatherForecast()
         {
-            var weatherForecast = await _weatherForecastContract.GetWeatherForecastAsync();
-            await _mediator.Publish(new LoggingRequest(weatherForecast, LogType.Info));
+            var weatherForecast = await _mediator.Send(new WeatherForecastQueryAllRequest());
             return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
         }
     }

@@ -1,5 +1,4 @@
 ﻿using Application.Core;
-using Domain.Utilities.LoggingMediatr;
 using Infraestructure.DatabaseConfig;
 using Infraestructure.MySqlEntityFramework;
 using MediatR;
@@ -7,14 +6,13 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Api.Extensions
+namespace Api
 {
     public static class WebApiServicesExtension
     {
         public static IServiceCollection InicializarConfiguracionApp(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(WebApiServicesExtension), typeof(BusinessExtensions), typeof(AccessDataExtensions));
-            services.AddMediatR(typeof(WebApiServicesExtension), typeof(LoggingRequest));
             services.AddOptions();
             services.AddRedisCache();
             services.ConfigureDataProtectionProvider();

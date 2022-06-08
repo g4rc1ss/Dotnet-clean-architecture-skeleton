@@ -1,9 +1,9 @@
-﻿using Domain.Infraestructure.ModelEntity;
+﻿using Domain.Application.WeatherForecast.ComandCreate;
 
 namespace Application.Interfaces.Infraestructure.Command.WeatherForecastCommandContracts
 {
     public interface IWeatherForecastCommandCreateContract
     {
-        Task<bool> ExecuteAsync(WeatherForecastModelEntity weather, CancellationToken cancellationToken = default);
+        Task<int> ExecuteAsync(CreateWeatherForecastRequest weather, CancellationToken cancellationToken = default);
     }
 }

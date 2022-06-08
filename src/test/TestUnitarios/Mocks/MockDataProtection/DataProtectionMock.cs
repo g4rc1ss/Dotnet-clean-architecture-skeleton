@@ -1,7 +1,4 @@
-﻿using Application.Interfaces.Data;
-using Microsoft.AspNetCore.DataProtection;
-using Moq;
-using TestUnitarios.Mocks.MockRepositoryDatabase.Fake;
+﻿using Moq;
 
 namespace TestUnitarios.Mocks.MockDataProtection
 {

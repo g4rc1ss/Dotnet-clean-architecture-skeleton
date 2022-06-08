@@ -1,5 +1,4 @@
-﻿using Application.Core.WeatherForecast;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.Core;

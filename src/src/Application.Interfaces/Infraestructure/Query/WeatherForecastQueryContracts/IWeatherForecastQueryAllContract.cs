@@ -1,9 +1,9 @@
-﻿using Domain.Infraestructure.ModelEntity;
+﻿using Domain.Application.WeatherForecast.QueryAll;
 
 namespace Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts
 {
     public interface IWeatherForecastQueryAllContract
     {
-        Task<List<WeatherForecastModelEntity>> ExecuteAsync(CancellationToken cancellationToken = default);
+        Task<List<WeatherForecastQueryAllResponse>> ExecuteAsync(CancellationToken cancellationToken = default);
     }
 }

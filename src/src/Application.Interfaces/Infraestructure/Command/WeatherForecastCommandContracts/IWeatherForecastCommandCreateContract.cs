@@ -1,4 +1,4 @@
-﻿using Domain.Database.ModelEntity;
+﻿using Domain.Infraestructure.ModelEntity;
 
 namespace Application.Interfaces.Infraestructure.Command.WeatherForecastCommandContracts
 {

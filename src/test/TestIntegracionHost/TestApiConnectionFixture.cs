@@ -1,7 +1,7 @@
-﻿using TestIntegracion.Initializers;
+﻿using TestIntegracionHost.Initializers;
 using Xunit;
 
-namespace TestIntegracion
+namespace TestIntegracionHost
 {
     [CollectionDefinition(TestCollections.WebApiTests)]
     public class TestApiConnectionFixture : ICollectionFixture<TestApiConnectionInitializer>

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Domain.Database.ModelEntity;
+using Domain.Infraestructure.ModelEntity;
 using Shared.Peticiones.Responses.WeatherForecast;
 
 namespace Api.MapperProfiles.WeatherForecast

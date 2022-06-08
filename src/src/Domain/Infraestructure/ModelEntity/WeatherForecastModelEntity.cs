@@ -1,4 +1,4 @@
-﻿namespace Domain.Database.ModelEntity
+﻿namespace Domain.Infraestructure.ModelEntity
 {
     public class WeatherForecastModelEntity
     {

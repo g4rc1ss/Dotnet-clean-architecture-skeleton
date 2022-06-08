@@ -1,14 +1,14 @@
 ﻿using Application.Core.WeatherForecast;
-using Application.Interfaces.Core;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.Core;
 
 public static class BusinessExtensions
 {
-    public static IServiceCollection AddNegocio(this IServiceCollection services)
+    public static IServiceCollection AddBusinessServices(this IServiceCollection services)
     {
-        services.AddScoped<IWeatherForecastNegocio, WeatherForecastNegocio>();
+        services.AddMediatR(typeof(BusinessExtensions));
 
         return services;
     }

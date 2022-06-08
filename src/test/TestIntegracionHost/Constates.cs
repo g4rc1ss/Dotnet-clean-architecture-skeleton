@@ -1,4 +1,4 @@
-﻿namespace TestIntegracion
+﻿namespace TestIntegracionHost
 {
     public class TestCollections
     {

@@ -3,10 +3,10 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Shared.Peticiones.Responses.WeatherForecast;
-using TestIntegracion.Initializers;
+using TestIntegracionHost.Initializers;
 using Xunit;
 
-namespace TestIntegracion.IntegrationTest
+namespace TestIntegracionHost.IntegrationTest
 {
     [Collection(TestCollections.WebApiTests)]
     public class WeatherForecastControllerTest

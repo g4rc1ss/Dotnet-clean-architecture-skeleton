@@ -14,7 +14,7 @@ namespace TestUnitarios
 
             host.ConfigureServices(services =>
             {
-                services.AddNegocio();
+                services.AddBusinessServices();
                 services.AddMockServices();
             });
 

@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces.Infraestructure.Command.WeatherForecastCommandContracts;
 using AutoMapper;
-using Domain.Database.ModelEntity;
+using Domain.Infraestructure.ModelEntity;
 using Infraestructure.MySqlEntityFramework.Contexts;
 using Infraestructure.MySqlEntityFramework.Entities;
 using Microsoft.AspNetCore.DataProtection;

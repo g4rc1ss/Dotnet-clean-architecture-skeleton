@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 
-namespace TestIntegracion.Configurations
+namespace TestIntegracionHost.Configurations
 {
     public class WebApplicationFactoryConfiguration : WebApplicationFactory<Program>
     {

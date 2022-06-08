@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Application.Interfaces.Infraestructure.Query.WeatherForecastQueryContracts;
 using AutoMapper;
-using Domain.Database.ModelEntity;
+using Domain.Infraestructure.ModelEntity;
 using Infraestructure.MySqlEntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;

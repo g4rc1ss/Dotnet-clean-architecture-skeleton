@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TestIntegracion.Configurations;
 
-namespace TestIntegracion.Initializers
+namespace TestIntegracionHost.Initializers
 {
     public class TestApiConnectionInitializer
     {

@@ -20,7 +20,7 @@ namespace Api.Extensions
             services.ConfigureDataProtectionProvider();
 
 
-            services.AddNegocio();
+            services.AddBusinessServices();
             services.AddDatabaseConfig(configuration);
 
             return services;

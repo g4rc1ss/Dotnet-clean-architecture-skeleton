@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Domain.Database.ModelEntity;
+using Domain.Infraestructure.ModelEntity;
 
 namespace TestUnitarios.Mocks.MockRepositoryDatabase.Fake
 {

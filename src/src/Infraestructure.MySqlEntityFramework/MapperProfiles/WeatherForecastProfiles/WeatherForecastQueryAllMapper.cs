@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using Domain.Application.WeatherForecast.ComandCreate;
 using Domain.Application.WeatherForecast.QueryAll;
+using Infraestructure.MySqlEntityFramework.DatabaseEntities;
 
-namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecast
+namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecastProfiles
 {
-    public class WeatherForecastQueryAllInfraestructureMapper : Profile
+    public class WeatherForecastQueryAllMapper : Profile
     {
-        public WeatherForecastQueryAllInfraestructureMapper()
+        public WeatherForecastQueryAllMapper()
         {
-            CreateProjection<Entities.WeatherForecast, WeatherForecastQueryAllResponse>()
+            CreateProjection<WeatherForecast, WeatherForecastQueryAllResponse>()
                 .ForMember(x => x.Date, y => y.MapFrom(x => x.Date))
                 .ForMember(x => x.Summary, y => y.Ignore())
                 .ForMember(x => x.TemperatureC, y => y.Ignore())

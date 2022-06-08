@@ -1,4 +1,4 @@
-﻿namespace Infraestructure.MySqlEntityFramework.Entities
+﻿namespace Infraestructure.MySqlEntityFramework.DatabaseEntities
 {
     public partial class WeatherForecast
     {

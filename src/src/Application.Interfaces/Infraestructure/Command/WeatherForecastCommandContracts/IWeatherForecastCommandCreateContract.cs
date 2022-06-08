@@ -4,6 +4,6 @@ namespace Application.Interfaces.Infraestructure.Command.WeatherForecastCommandC
 {
     public interface IWeatherForecastCommandCreateContract
     {
-        Task<int> ExecuteAsync(CreateWeatherForecastRequest weather, CancellationToken cancellationToken = default);
+        Task<int> ExecuteAsync(WeatherForecastCommandCreateRequest weather, CancellationToken cancellationToken = default);
     }
 }

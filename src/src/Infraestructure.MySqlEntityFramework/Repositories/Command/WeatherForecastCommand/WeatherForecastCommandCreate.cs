@@ -2,7 +2,7 @@
 using AutoMapper;
 using Domain.Application.WeatherForecast.ComandCreate;
 using Infraestructure.MySqlEntityFramework.Contexts;
-using Infraestructure.MySqlEntityFramework.Entities;
+using Infraestructure.MySqlEntityFramework.DatabaseEntities;
 using Microsoft.AspNetCore.DataProtection;
 
 namespace Infraestructure.MySqlEntityFramework.Repositories.Command.WeatherForecastCommand
@@ -20,12 +20,20 @@ namespace Infraestructure.MySqlEntityFramework.Repositories.Command.WeatherForec
             _dataProtector = dataProtection.CreateProtector("purpose.de.creacion.Weather.Forecast");
         }
 
-        public async Task<int> ExecuteAsync(CreateWeatherForecastRequest weather, CancellationToken cancellationToken = default)
+        public async Task<int> ExecuteAsync(WeatherForecastCommandCreateRequest weather, CancellationToken cancellationToken = default)
         {
             var weatherForecast = _mapper.Map<WeatherForecast>(weather);
 
+            weatherForecast.Date = DateTime.Now;
+            ProtectFieldsToSave(ref weatherForecast);
+
             await _cleanArchitectureContext.AddAsync(weatherForecast, cancellationToken);
             return await _cleanArchitectureContext.SaveChangesAsync(cancellationToken);
+        }
+
+        private void ProtectFieldsToSave(ref WeatherForecast weatherForecast)
+        {
+            weatherForecast.Summary = _dataProtector.Protect(weatherForecast.Summary);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Domain.Application.WeatherForecast.ComandCreate
 {
-    public class CreateWeatherForecastRequest : IRequest<CreateWeatherForecastResponse>
+    public class WeatherForecastCommandCreateRequest : IRequest<WeatherForecastCommandCreateResponse>
     {
         public DateTime? Date { get; set; }
         public int? TemperatureC { get; set; }

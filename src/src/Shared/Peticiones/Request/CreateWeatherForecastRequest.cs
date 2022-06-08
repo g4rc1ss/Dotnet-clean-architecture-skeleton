@@ -11,5 +11,6 @@ public class CreateWeatherForecastRequest
     public int Fahrenheit { get; set; }
 
     [StringLength(100)]
+    [Required]
     public string? Descripcion { get; set; }
 }

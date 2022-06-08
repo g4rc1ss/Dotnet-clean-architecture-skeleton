@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Core.UserCases.WeatherForecast
 {
-    internal class CreateWeatherForecastHandler : IRequestHandler<CreateWeatherForecastRequest, CreateWeatherForecastResponse>
+    internal class CreateWeatherForecastHandler : IRequestHandler<WeatherForecastCommandCreateRequest, WeatherForecastCommandCreateResponse>
     {
         private readonly IWeatherForecastCommandCreateContract _weatherForecastCommandCreate;
 
@@ -13,10 +13,10 @@ namespace Application.Core.UserCases.WeatherForecast
             _weatherForecastCommandCreate = weatherForecastCommandCreate;
         }
 
-        public async Task<CreateWeatherForecastResponse> Handle(CreateWeatherForecastRequest request, CancellationToken cancellationToken)
+        public async Task<WeatherForecastCommandCreateResponse> Handle(WeatherForecastCommandCreateRequest request, CancellationToken cancellationToken)
         {
             var createWeatherForecast = await _weatherForecastCommandCreate.ExecuteAsync(request, cancellationToken);
-            return new CreateWeatherForecastResponse
+            return new WeatherForecastCommandCreateResponse
             {
                 Success = createWeatherForecast > 0,
             };

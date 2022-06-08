@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Domain.Application.WeatherForecast.ComandCreate;
 using Domain.Application.WeatherForecast.QueryAll;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Peticiones.Request;
 using Shared.Peticiones.Responses.WeatherForecast;
 
 namespace Api.Controllers
@@ -24,6 +26,15 @@ namespace Api.Controllers
         {
             var weatherForecast = await _mediator.Send(new WeatherForecastQueryAllRequest());
             return Json(_mapper.Map<IEnumerable<WeatherForecastResponse>>(weatherForecast));
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateWeatherForecast(CreateWeatherForecastRequest weatherForecast)
+        {
+            var newWeather = _mapper.Map<WeatherForecastCommandCreateRequest>(weatherForecast);
+            var createWeather = await _mediator.Send(newWeather);
+
+            return Json(createWeather);
         }
     }
 }

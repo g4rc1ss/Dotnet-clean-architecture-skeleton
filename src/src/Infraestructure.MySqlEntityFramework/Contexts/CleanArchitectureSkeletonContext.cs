@@ -1,4 +1,4 @@
-﻿using Infraestructure.MySqlEntityFramework.Entities;
+﻿using Infraestructure.MySqlEntityFramework.DatabaseEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.MySqlEntityFramework.Contexts

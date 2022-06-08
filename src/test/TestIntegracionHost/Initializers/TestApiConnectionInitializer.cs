@@ -2,6 +2,7 @@
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TestIntegracionHost.Configurations;
 
 namespace TestIntegracionHost.Initializers
 {

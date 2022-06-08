@@ -1,7 +1,6 @@
 ﻿using Application.Core;
 using Infraestructure.DatabaseConfig;
 using Infraestructure.MySqlEntityFramework;
-using MediatR;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -21,7 +21,7 @@ namespace Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("allWeatherForecast")]
+        [HttpGet("all")]
         public async Task<IActionResult> GetWeatherForecast()
         {
             var weatherForecast = await _mediator.Send(new WeatherForecastQueryAllRequest());

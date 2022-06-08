@@ -24,7 +24,7 @@ namespace Wpf
         private async void Get_WeatherForecast_Click(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Wait;
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<WeatherForecastResponse>>("WeatherForecast/GetWeatherForecast");
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<WeatherForecastResponse>>("WeatherForecast/all");
             Mouse.OverrideCursor = Cursors.Arrow;
             txtWeatherForecast.Text = JsonSerializer.Serialize(response);
         }

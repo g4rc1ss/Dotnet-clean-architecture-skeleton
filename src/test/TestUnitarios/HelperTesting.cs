@@ -1,32 +1,28 @@
-﻿using Application.Core;
+﻿using System;
+using Application.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TestUnitarios.Mocks.MockDataProtection;
-using TestUnitarios.Mocks.MockRepositoryDatabase;
+using TestUnitarios.Mocks.MockingInfraestructure.MoqWeatherForecast.MoqQueries.QueryAll;
 
 namespace TestUnitarios
 {
     internal static class HelperTesting
     {
-        public static IHost CreateDependencyInjection()
+        public static IServiceProvider CreateServiceProvider(Action<IServiceCollection> addServices)
         {
             var host = new HostBuilder();
 
             host.ConfigureServices(services =>
             {
                 services.AddBusinessServices();
-                services.AddMockServices();
             });
 
-            return host.Build();
-        }
+            if (addServices is not null)
+            {
+                host.ConfigureServices(addServices);
+            }
 
-        public static IServiceCollection AddMockServices(this IServiceCollection services)
-        {
-            services.AddTransient(x => new WeatherForecastRepositoryMock().MockingWeatherForecastRepository.Object);
-            services.AddTransient(x => new DataProtectionProviderMock().MockingDataProtectionProvider.Object);
-
-            return services;
+            return host.Build().Services;
         }
     }
 }

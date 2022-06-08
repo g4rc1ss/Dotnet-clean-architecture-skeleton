@@ -23,7 +23,7 @@ namespace TestIntegracionHost.IntegrationTest
         {
 
             var client = _apiConnection.ApiClient;
-            var response = await client.GetFromJsonAsync<IEnumerable<WeatherForecastResponse>>("WeatherForecast/GetWeatherForecast");
+            var response = await client.GetFromJsonAsync<IEnumerable<WeatherForecastResponse>>("WeatherForecast/all");
             response.Should().NotBeNull();
             response.Should().HaveCountGreaterThan(0);
 

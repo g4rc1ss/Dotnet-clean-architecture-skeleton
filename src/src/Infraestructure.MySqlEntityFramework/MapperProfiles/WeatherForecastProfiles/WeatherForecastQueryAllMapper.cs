@@ -9,10 +9,10 @@ namespace Infraestructure.MySqlEntityFramework.MapperProfiles.WeatherForecastPro
         public WeatherForecastQueryAllMapper()
         {
             CreateProjection<WeatherForecast, WeatherForecastQueryAllResponse>()
-                .ForMember(x => x.Date, y => y.MapFrom(x => x.Date))
-                .ForMember(x => x.Summary, y => y.Ignore())
-                .ForMember(x => x.TemperatureC, y => y.Ignore())
-                .ForMember(x => x.TemperatureF, y => y.Ignore());
+                .ForMember(x => x.Date, y => y.Ignore())
+                .ForMember(x => x.Summary, y => y.MapFrom(x => x.Summary))
+                .ForMember(x => x.TemperatureC, y => y.MapFrom(x => x.TemperatureC))
+                .ForMember(x => x.TemperatureF, y => y.MapFrom(x => x.TemperatureF));
         }
     }
 }

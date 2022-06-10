@@ -33,7 +33,7 @@ namespace Infraestructure.MySqlEntityFramework.Repositories.Command.WeatherForec
 
         private void ProtectFieldsToSave(ref WeatherForecast weatherForecast)
         {
-            weatherForecast.Summary = _dataProtector.Protect(weatherForecast.Summary);
+            weatherForecast.Summary = _dataProtector.Protect(weatherForecast.Summary!);
         }
     }
 }
